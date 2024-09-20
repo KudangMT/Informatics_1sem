@@ -47,7 +47,7 @@ def decode_vigenere(text, key):
     length = len(key) - 1
     for let in text:
         if let in alph2:
-            output += alph2[(alph2.index(let) + alph2.index(key[counter]) + 1) % 33]
+            output += alph2[(alph2.index(let) - alph2.index(key[counter])) % 33]
             counter += 1
         else:
             output += let
@@ -56,22 +56,17 @@ def decode_vigenere(text, key):
     return output
 
 
-def frequency_analysis(text, shift=1):
-    if shift == 1:
-        data = list(text)
-        for let in text:
-            if let in alph2:
-                l = 0
-            else:
-                data.remove(let)
-    else:
-        data = list(text)
-        for let in text:
-            if let in alph2:
-                l = 0
-            else:
-                data.remove(let)
-    plt.hist(data, bins=66)
+def frequency_analysis(text, period=1, shift=0):
+    data = list(text)
+    for let in text:
+        if let in alph2:
+            l = 0
+        else:
+            data.remove(let)
+    print(data)
+    new_data = data[shift::period]
+    print(new_data)
+    plt.hist(new_data, bins=66)
     plt.title('Histogram')
     plt.xlabel('Letter')
     plt.ylabel('Letters in text')
@@ -85,9 +80,10 @@ text = sys.stdin.readlines()
     # print(decode_monoalphabet("".join(text).lower()))
 # frequency_analysis("".join(text), 1) # for monoalphabet
 
-key = "аааааааа"
-# m = "00000000"
+key = "мфти"
 print(decode_vigenere("".join(text), key))
-frequency_analysis(decode_vigenere("".join(text), key), 8)  # i have no idea what to do with that.
+# frequency_analysis(decode_vigenere("".join(text), key), 8, 2)
 # alph2 = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
 # ыцящгнюзрвхщдз щгхья дбахжтыи дгч эщтфхьтяхт дфыыачпг вчшэтфбффсявблы мыээф -- эчщдожящгцат ячрщюе еэжщм "саспбн". ёшщянъжн хсжбмыц ксбебкмвыз, хёвчшръчоффбхйдз о бтбхвтю йжбт ющгсх, эдшыаоратеъл шб ъхй вчэ.
+# промежуточный результат:
+# иноарысйющеасх мегуо конииатш кре рыалегамиф слквнеге поздавфцвиоиощо оифмы -- кемёьюоардуф моаалт шяфрь "шняггы". эзамыниы мбноъош ширлошадия, емпелтзоюывоился ю заоидах щноа сырие, дсёовьзпщтзя ъо сер пер.
