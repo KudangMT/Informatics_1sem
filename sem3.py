@@ -70,60 +70,60 @@ import time
 # print(d)
 
 # 5 -------------------------------
-# def spiral_matrix(nc, mc, nd, md, dir, c):
-#     n_count = nd
-#     m_count = md
-#     while n_count and m_count:
-#         if dir == 1:
-#             mat[nc][mc] = c
-#             c += 1
-#             nc += 1
-#             n_count -= 1
-#         elif dir == 2:
-#             mat[nc][mc] = c
-#             c += 1
-#             mc += 1
-#             m_count -= 1
-#         elif dir == 3:
-#             mat[nc][mc] = c
-#             c += 1
-#             nc -= 1
-#             n_count -= 1
-#         elif dir == 4:
-#             mat[nc][mc] = c
-#             c += 1
-#             mc -= 1
-#             m_count -= 1
-#
-#     if dir == 1 or dir == 3:
-#         md -= 1
-#         if c < n+m:
-#             md += 1
-#     elif dir == 2 or dir == 4:
-#         nd -= 1
-#         if c < n+m:
-#             nd += 1
-#
-#     dir += 1
-#     if dir == 5:
-#         dir = 1
-#     if nd == 0 or md == 0:
-#         return 0
-#     spiral_matrix(nc, mc, nd, md, dir, c)
-#
-#
-# n = 9
-# m = 10
-# mat = []
-# for l in range(n):
-#     mat.append([0 for i in range(m+1)])
-#
-# spiral_matrix(0, 0, n-1, m-1, 1, 1)
-# for l in range(m):
-#     for i in range(n):
-#         print(mat[i][l], end=" ")
-#         if mat[i][l] < 10: print(end=" ")
-#     print()
+def spiral_matrix(nc, mc, nd, md, dir, c):
+    n_count = nd
+    m_count = md
+    while n_count and m_count:
+        if dir == 1:
+            mat[nc][mc] = c
+            c += 1
+            nc += 1
+            n_count -= 1
+        elif dir == 2:
+            mat[nc][mc] = c
+            c += 1
+            mc += 1
+            m_count -= 1
+        elif dir == 3:
+            mat[nc][mc] = c
+            c += 1
+            nc -= 1
+            n_count -= 1
+        elif dir == 4:
+            mat[nc][mc] = c
+            c += 1
+            mc -= 1
+            m_count -= 1
+
+    if dir == 1 or dir == 3:
+        md -= 1
+        if c < n+m:
+            md += 1
+    elif dir == 2 or dir == 4:
+        nd -= 1
+        if c < n+m:
+            nd += 1
+
+    dir += 1
+    if dir == 5:
+        dir = 1
+    if nd == 0 or md == 0:
+        return 0
+    spiral_matrix(nc, mc, nd, md, dir, c)
+
+
+n = 9
+m = 10
+mat = []
+for l in range(n):
+    mat.append([0 for i in range(m+1)])
+
+spiral_matrix(0, 0, n-1, m-1, 1, 1)
+for l in range(m):
+    for i in range(n):
+        print(mat[i][l], end=" ")
+        if mat[i][l] < 10: print(end=" ")
+    print()
 
 
 # 6 -----------------------
