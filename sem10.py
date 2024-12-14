@@ -80,8 +80,9 @@ text = sys.stdin.readlines()
     # print(decode_monoalphabet("".join(text).lower()))
 # frequency_analysis("".join(text), 1) # for monoalphabet
 
-key = "мфти"
-print(decode_vigenere("".join(text), key))
+# key = "мфти"
+# print(decode_vigenere("".join(text), key))
+print(decode_ceasar("".join(text), 14))
 # frequency_analysis(decode_vigenere("".join(text), key), 8, 2)
 # alph2 = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
 # ыцящгнюзрвхщдз щгхья дбахжтыи дгч эщтфхьтяхт дфыыачпг вчшэтфбффсявблы мыээф -- эчщдожящгцат ячрщюе еэжщм "саспбн". ёшщянъжн хсжбмыц ксбебкмвыз, хёвчшръчоффбхйдз о бтбхвтю йжбт ющгсх, эдшыаоратеъл шб ъхй вчэ.

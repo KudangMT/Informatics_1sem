@@ -39,4 +39,4 @@ class Vector():
 k = Vector(1, 2, 1)
 l = Vector(3, -4, 5)
 m = Vector(1, 32, 5)
-print(Vector.isOrth(k, m))
+print(Vector.isOrth(k, l))
